@@ -18,7 +18,13 @@ import ArticleIcon from '@mui/icons-material/Article';
 import { t } from "i18next";
 
 import { getCookie } from "../utils/cookies";
-import { pn } from "../utils/prettyNumbers";
+
+// pretty numbers
+function pn(x) {
+  var parts = x.toString().split(".");
+  parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  return parts.join(".");
+}
 
 class OrderPage extends Component {
   constructor(props) {

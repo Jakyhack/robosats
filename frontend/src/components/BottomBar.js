@@ -30,7 +30,17 @@ import AmbossIcon from "./icons/AmbossIcon";
 import FavoriteIcon from '@mui/icons-material/Favorite';
 
 import { getCookie } from "../utils/cookies";
-import { pn } from "../utils/prettyNumbers";
+
+// pretty numbers
+function pn(x) {
+    if(x == null){
+        return 'null'
+    }else{
+        var parts = x.toString().split(".");
+        parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        return parts.join(".");
+    }
+}
 
 class BottomBar extends Component {
     constructor(props) {
